@@ -1,0 +1,108 @@
+/* VARIABLES */
+:root {
+  --color-primary: #fa7f1a;
+  --color-danger: #ff7782;
+  --color-dark: #363949;
+  --color-light: rgba(132, 139, 200, 0.18);
+  --color-background: #f6f6f9;
+  --color-white: #fff;
+  --color-dark-variant: #e79720;
+  --card-border-radius: 2rem;
+  --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+/* GENERAL STYLES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.Dashboard{
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMEBghQjRl_W9erZKklAVMfVtQBseVbBOJpw&s");
+  
+}
+h1 {
+  font-weight: 800;
+  font-size: 1.8rem;
+}
+h3 {
+  font-size: 0.87rem;
+}
+a {
+  text-decoration: none;
+  color: var(--color-dark);
+}
+
+/* CONTAINER */
+.container {
+  display: grid;
+  grid-template-columns: 14rem auto;
+  gap: 1.8rem;
+  width: 96%;
+  margin: 0 auto;
+}
+
+/* SIDEBAR */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+ background-repeat: no-repeat;
+ background-size: cover;
+
+}
+.sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  color: var(--color-dark);
+  transition: all 0.3s ease;
+  color: orange;
+}
+.sidebar a.active {
+  background: var(--color-light);
+  color:#dbe919;
+}
+.sidebar a:hover {
+  color: var(--color-primary);
+}
+
+/* MAIN */
+main {
+  margin-top: 1.4rem;
+}
+.insights {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.6rem;
+}
+.insights > div {
+  background: var(--color-white);
+  padding: 1.5rem;
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--box-shadow);
+}
+.user-list {
+  margin-top: 1.5rem;
+}
+.user-list table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-white);
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--box-shadow);
+}
+.user-list th, .user-list td {
+  padding: 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-light);
+}
+.user-list th {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+.user-list td:last-child {
+  text-align: center;
+}

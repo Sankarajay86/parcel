@@ -1,0 +1,50 @@
+/* General Styles */
+
+  
+  .App {
+    text-align: center;
+    
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 4000px;
+    height: 400px;
+  
+  }
+  
+  /* Sign In UI */
+  button {
+    background-color: red; /* Google blue */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color:orange;
+    box-shadow: yellow;
+  }
+  
+  p {
+    font-size: 18px;
+    color:yellow;
+    font-size: 30px;
+    font-family: "Lucida Console", "Courier New", monospace;
+  }
+  
+  /* User Info UI */
+  h2 {
+    font-size: 22px;
+    color: #333;
+  }
+.imgs{
+  width: 200x;
+  height: 150px;
+  margin-right: 10px;
+}
+  
+  

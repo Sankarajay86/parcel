@@ -1,0 +1,115 @@
+General Container
+.form-container {
+    width: 450px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #2c3e50; /* Darker background for a sleek, modern look */
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    color: #ecf0f1; /* Light text color for contrast */
+    font-family: 'Arial', sans-serif;
+}
+
+/* Form Layout with Flexbox */
+.form-group {
+    display: flex;
+    flex-direction: row; /* Aligns label and input in a horizontal row */
+    justify-content: space-between; /* Space between label and input */
+    align-items: center; /* Vertically align label and input */
+    margin-bottom: 15px; /* Space between form fields */
+}
+
+/* Label Styling */
+.label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ecf0f1;
+    width: 30%; /* 30% width for the label */
+}
+
+/* Input Fields */
+.input-field {
+    width: 65%; /* 65% width for the input fields */
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #16a085; /* A modern teal color */
+    border-radius: 8px;
+    background-color: #34495e; /* Dark background for inputs */
+    color: #ecf0f1; /* Light text color */
+    transition: border-color 0.3s ease;
+}
+
+/* Focus Effect for Input Fields */
+.input-field:focus {
+    border-color: #27ae60; /* Greenish border on focus to indicate success */
+    outline: none;
+    box-shadow: 0 0 8px rgba(39, 174, 96, 0.5);
+}
+
+/* Textarea Field */
+.textarea-field {
+    width: 65%; /* Same width as input field */
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #16a085;
+    border-radius: 8px;
+    background-color: #34495e;
+    color: #ecf0f1;
+    resize: vertical; /* Allows resizing vertically */
+    transition: border-color 0.3s ease;
+}
+
+/* Focus Effect for Textarea */
+.textarea-field:focus {
+    border-color: #27ae60;
+    outline: none;
+    box-shadow: 0 0 8px rgba(39, 174, 96, 0.5);
+}
+
+/* Placeholder Styling */
+.input-field::placeholder, .textarea-field::placeholder {
+    color: #bdc3c7; /* Light gray placeholder text */
+    font-style: italic;
+}
+
+/* Button Styling (for Submit or Actions) */
+.button {
+    width: 20%;
+    padding: 14px;
+    background-color: #27ae60; /* Green background to indicate success or approval */
+    color: #ecf0f1;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover Effect for Button */
+.button:hover {
+    background-color: #2ecc71; /* Lighter green on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .form-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .input-field, .textarea-field {
+        font-size: 12px;
+        width: 100%; /* Full-width inputs on small screens */
+    }
+
+    .label {
+        font-size: 14px;
+        width: 100%; /* Full width for labels on small screens */
+        margin-bottom: 8px; /* Add space between label and input */
+    }
+
+    .button {
+        font-size: 14px;
+    }
+}
