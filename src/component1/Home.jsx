@@ -7,7 +7,8 @@ function Home() {
 
     return (
         <>
-        <p>sankar ajay</p>
+        <p>sankar ajay m</p>
+        <p>anjac</p>
         </>
    
     );

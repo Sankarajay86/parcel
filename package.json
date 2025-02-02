@@ -12,6 +12,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "predeplay": ""
+    
   },
   "dependencies": {
     "firebase": "^11.1.0",
@@ -35,4 +36,5 @@
     "globals": "^15.13.0",
     "vite": "^6.0.3"
   }
+
 }
