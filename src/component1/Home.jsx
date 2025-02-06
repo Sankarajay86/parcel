@@ -25,7 +25,7 @@ function Home() {
               <ul className="navbar-list1">
                 <li><Link to="/book" className="navbar-link1">Booking</Link></li>
                 <li><Link to="" className="navbar-link1">Contact</Link></li>
-                <li><Link to="" className="navbar-link1">Login</Link></li>
+                <li><Link to="" className="navbar-link1">Profile</Link></li>
               </ul>
             </nav>
           </div>
