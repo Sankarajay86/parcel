@@ -6,6 +6,7 @@ import Admin from './component1/Admin';
 import Page from './component1/Page';
 import User from './component1/User';
 import Home from './component1/Home';
+import Book from './component1/Book';
 function App() {
 
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/Admin" element={<Admin />} />
         <Route path="/User" element={<User />}/>
         <Route path="/Home" element={<Home />}/>
+        <Route path="/book" element={<Book />}/>
       </Routes>
     </Router>
     </>

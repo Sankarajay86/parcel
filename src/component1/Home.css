@@ -1,0 +1,347 @@
+
+
+
+/* Header Styles */
+.header11 {
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 15px 0;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  top: 0;
+}
+
+.header11 .container11  {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  
+}
+
+.logo11 {
+  font-size: 2.5rem;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.logo11:hover {
+  color: var(--dark-orange);
+  cursor: pointer;
+}
+
+/* Navigation Bar */
+.navbar11 {
+  display: flex;
+}
+
+.navbar-list1 {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.navbar-link1 {
+  color: white;
+  font-size: 1.4rem;
+  text-decoration: none;
+  padding: 10px 15px;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-link1:hover {
+  color: var(--dark-orange);
+}
+
+/* Section Styles */
+.section1 {
+  padding: 100px 20px;
+}
+
+.section-project1 {
+  background-color: var(--dark-orange);
+
+  padding-top: 20rem;
+}
+
+.h2-section-title1 {
+  color: black;
+  text-align: center;
+  font-size: 2.5rem;
+}
+.feature-card1
+{
+    width: 60rem;
+    height: 25rem;
+
+}
+.feature-card1 img
+{
+    height: 15rem;
+    width: 15rem;
+    border-radius: 200px;
+}
+/* Feature Card */
+.feature-card1{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+  background-color: var(--black);
+  box-shadow: 0 4px 6px rgba(216, 133, 55, 0.1);
+  margin: 10px;
+  border-radius: 50px;
+  background-image: url("https://wallpapers.com/images/high/black-and-orange-8000-x-4500-wallpaper-jjustps80jgk252p.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right;
+ 
+ 
+}
+
+.card-title1 {
+  font-size: 1.5rem;
+  margin: 10px 0;
+  color: #f7af5c;
+}
+
+.card-text1 {
+  font-size: 1rem;
+  color: #f5e981;
+  margin: 0;
+}
+
+/* Footer */
+.footer1 {
+  background-color: var(--eerie-black);
+  color: var(--white);
+  padding: 40px 20px;
+  text-align: center;
+  background-color: black;
+  text-align: left; 
+}
+
+.footer1 .footer-text1 {
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.footer1 a {
+  color: var(--dark-orange);
+  text-decoration: none;
+  text-align: left;
+  
+}
+
+.footer1 a:hover {
+  color: var(--light-gray);
+}
+
+/* Back to Top Button */
+.back-top-btn1 {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--dark-orange);
+  color: var(--white);
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.back-top-btn1.active {
+  opacity: 1;
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+  .navbar-list {
+    flex-direction: column;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    padding: 20px 0;
+  }
+
+  .navbar-link1 {
+    padding: 15px;
+  }
+}
+/* Centering main content */
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* Centers content vertically */
+  align-items: center;  /* Centers content horizontally */
+  min-height: 100vh;  /* Full viewport height */
+  text-align: center;
+  padding: 20rem;
+  width: 84rem;
+}
+
+/* Projects Section */
+.section-project1 {
+  background-color: var(--dark-orange);
+ padding-top: 40rem;
+  text-align: center;
+  background-color: black;
+  border-radius: 75px;
+}
+
+.section-project1 .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.h2-section-title1 {
+  color: black;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+/* Project List */
+.project-list1 {
+  display: flex;
+  justify-content: center;  /* Centers items horizontally */
+  gap: 20px;
+  flex-wrap: wrap;  /* Ensures responsiveness */
+  padding-top: 20px;
+}
+
+/* Individual Project Item */
+.project-item1 {
+  list-style: none;
+  max-width: 400px;
+  background-color: var(--black);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  
+}
+
+.project-item1:hover {
+  transform: translateY(-10px);
+}
+
+/* Project Card */
+.project-card1 {
+  background-color: var(--white);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Image Styling */
+.card-banner1 img {
+  width:15rem;
+  height: 15rem;
+  border-radius: 10px;
+}
+
+/* Project Tags */
+.card-tag1 {
+  color: var(--dark-orange);
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .project-list1 {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .project-item1 {
+    max-width: 90%;
+  }
+}
+/* Blog Section */
+.section.blog1 {
+    background-color: var(--white);
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  .section1.blog1 .container1 {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 20rem;
+  }
+  
+  .h2.section-title1 {
+    color: black;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  
+  /* Blog List */
+  .blog-list1 {
+    display: flex;
+    justify-content: center;  /* Centers items horizontally */
+    gap: 20px;
+    flex-wrap: wrap;  /* Ensures responsiveness */
+    padding-top: 20px;
+  }
+  
+  /* Individual Blog Item */
+  .blog-card1 {
+    background-color: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    max-width: 500px;
+    text-align: center;
+    background-color: black;
+  }
+  
+  .blog-card1:hover {
+    transform: translateY(-10px);
+  }
+  
+  /* Blog Image */
+  .card-banner1- img {
+    width: 6rem;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+    background-color: black;
+  }
+  
+  /* Blog Content */
+  .card-content1 {
+    padding: 20px;
+  }
+  
+  .card-title1 {
+    font-size: 1.6rem;
+    color: var(--dark-orange);
+    margin-bottom: 10px;
+  }
+  
+  .card-tag1 {
+    font-size: 1.2rem;
+    color: var(--black);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .blog-list1 {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .blog-card1 {
+      max-width: 90%;
+    }
+  }
+  
