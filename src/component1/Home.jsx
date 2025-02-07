@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import './Home.css';
-import image1 from './img/Safe.png';
+//import image1 from './img/safe.png';
 import loc from './img/loc.jpg';
 import img1 from './img/img1.png';
 import din from './img/din.jpg';
@@ -48,7 +48,7 @@ function Home() {
                   <li>
                     <div className="feature-card2">
                       <div className="card-icon2">
-                        <img src={image1} className="img1" alt="Safe & Secure Icon" />
+                        {/* <img src={image1} className="img1" alt="Safe & Secure Icon" /> */}
                       </div>
                       <h3 className="h3-card-title2">Safe & Secure</h3>
                       <p className="card-text2">We provide top-notch security for your goods throughout the transportation process.</p>
