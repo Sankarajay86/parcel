@@ -1,162 +1,129 @@
 import React, { useState } from "react";
+import { db } from "../firebase/firebaseconfig.js"; // Ensure Firebase is set up correctly
+import { collection, addDoc, doc, updateDoc } from "firebase/firestore";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
-import "./sty.css"; // Ensure CSS for modal and table
-
+import "./sty.css";
+import './Book.css'
 const Book = () => {
-  const [items, setItems] = useState([]);
-  const [totalPrice, setTotalPrice] = useState(0);
-  const [itemName, setItemName] = useState("");
-  const [itemPrice, setItemPrice] = useState("");
-  const [itemQuantity, setItemQuantity] = useState("");
-  const [showModal, setShowModal] = useState(false);
+  const [bookingDetails, setBookingDetails] = useState({
+    name: "",
+    address: "",
+    phone: "",
+    email: "",
+    weight: "",
+    fromLocation: "",
+    toLocation: "",
+    numberOfParcels: "",
+    deliveryAddress: "",
+  });
+  const [bookingId, setBookingId] = useState(null);
 
-  const addItem = () => {
-    if (itemName && itemPrice > 0 && itemQuantity > 0) {
-      const newItem = {
-        name: itemName,
-        price: parseFloat(itemPrice),
-        quantity: parseInt(itemQuantity),
-      };
-      setItems([...items, newItem]);
-      setItemName("");
-      setItemPrice("");
-      setItemQuantity("");
+  const handleChange = (e) => {
+    setBookingDetails({ ...bookingDetails, [e.target.name]: e.target.value });
+  };
+
+  const bookParcel = async () => {
+    if (!bookingDetails.name || !bookingDetails.address || !bookingDetails.phone || 
+        !bookingDetails.email || !bookingDetails.weight || !bookingDetails.fromLocation || 
+        !bookingDetails.toLocation || !bookingDetails.numberOfParcels || !bookingDetails.deliveryAddress) {
+      alert("All fields are required!");
+      return;
+    }
+
+    try {
+      // Add parcel details to Firestore without bookingId initially
+      const docRef = await addDoc(collection(db, "parcelBookings"), { 
+        ...bookingDetails,
+        bookingId: "" // Temporary empty value
+      });
+
+      // Update Firestore with the generated Booking ID
+      await updateDoc(doc(db, "parcelBookings", docRef.id), { bookingId: docRef.id });
+      
+      // Store bookingId in state for UI use
+      setBookingId(docRef.id);
+
+      alert("Parcel booked successfully! Your Booking ID: " + docRef.id);
+    } catch (error) {
+      console.error("Error adding document: ", error);
     }
   };
 
-  const calculateTotal = () => {
-    const total = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
-    setTotalPrice(total);
-  };
+  const downloadReceipt = () => {
+    if (!bookingId) {
+      alert("Please book a parcel first!");
+      return;
+    }
 
-  const downloadInvoice = () => {
     const doc = new jsPDF();
-
-    // Title
     doc.setFontSize(16);
-    doc.text("Invoice", 105, 10, { align: "center" });
+    doc.text("Parcel Booking Receipt", 105, 10, { align: "center" });
 
-    // Table
-    const tableData = items.map((item, index) => [
-      index + 1,
-      item.name,
-      item.quantity,
-      `$${item.price.toFixed(2)}`,
-      `$${(item.price * item.quantity).toFixed(2)}`,
-    ]);
+    const tableData = [
+      ["Name", bookingDetails.name],
+      ["Address", bookingDetails.address],
+      ["Phone", bookingDetails.phone],
+      ["Email", bookingDetails.email],
+      ["Weight", bookingDetails.weight + " kg"],
+      ["From", bookingDetails.fromLocation],
+      ["To", bookingDetails.toLocation],
+      ["Number of Parcels", bookingDetails.numberOfParcels],
+      ["Delivery Address", bookingDetails.deliveryAddress],
+      ["Booking ID", bookingId],
+    ];
 
-    doc.autoTable({
-      head: [["#", "Item Name", "Quantity", "Price", "Total"]],
-      body: tableData,
-      startY: 20,
-    });
-
-    // Total Price
-    doc.setFontSize(14);
-    doc.text(`Total Price: $${totalPrice.toFixed(2)}`, 10, doc.lastAutoTable.finalY + 10);
-
-    // Save PDF
-    doc.save("invoice.pdf");
-  };
-
-  const generateInvoice = () => {
-    calculateTotal();
-    setShowModal(true);
+    doc.autoTable({ head: [["Field", "Details"]], body: tableData, startY: 20 });
+    doc.save("Parcel_Receipt.pdf");
   };
 
   return (
-    <div className="container1">
-      <h1>Billing System</h1>
+    <div className="container111">
+      <h1>Parcel Booking</h1>
 
-      {/* Add Item Section */}
-      <div className="add-item">
-        <h2>Add Item</h2>
-        <div className="input-group">
-          <input
-            type="text"
-            value={itemName}
-            onChange={(e) => setItemName(e.target.value)}
-            placeholder="Item name"
-          />
-          <input
-            type="number"
-            value={itemPrice}
-            onChange={(e) => setItemPrice(e.target.value)}
-            placeholder="Item price"
-          />
-          <input
-            type="number"
-            value={itemQuantity}
-            onChange={(e) => setItemQuantity(e.target.value)}
-            placeholder="Item quantity"
-          />
-          <button onClick={addItem}>Add</button>
-        </div>
+      <div className="input-group">
+        <table>
+          <tbody>
+            <tr>
+              <td><input type="text" name="name" placeholder="Full Name" value={bookingDetails.name} onChange={handleChange} /></td>
+              <td><input type="text" name="address" placeholder="Address" value={bookingDetails.address} onChange={handleChange} /></td>
+            </tr>
+            <tr>
+              <td><input type="text" name="phone" placeholder="Phone Number" value={bookingDetails.phone} onChange={handleChange} /></td>
+              <td><input type="email" name="email" placeholder="Email" value={bookingDetails.email} onChange={handleChange} /></td>
+            </tr>
+            <tr>
+              <td><input type="number" name="weight" placeholder="Weight (kg)" value={bookingDetails.weight} onChange={handleChange} /></td>
+              <td>
+                <select name="fromLocation" value={bookingDetails.fromLocation} onChange={handleChange}>
+                  <option value="">Select From</option>
+                  <option value="Erode">Erode</option>
+                  <option value="Dindigul">Dindigul</option>
+                  <option value="Karur">Karur</option>
+                  <option value="Sivakasi">Sivakasi</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <select name="toLocation" value={bookingDetails.toLocation} onChange={handleChange}>
+                  <option value="">Select To</option>
+                  <option value="Erode">Erode</option>
+                  <option value="Dindigul">Dindigul</option>
+                  <option value="Karur">Karur</option>
+                  <option value="Sivakasi">Sivakasi</option>
+                </select>
+              </td>
+              <td><input type="number" name="numberOfParcels" placeholder="Number of Parcels" value={bookingDetails.numberOfParcels} onChange={handleChange} /></td>
+            </tr>
+            <tr>
+              <td colSpan="2"><input type="text" name="deliveryAddress" placeholder="Delivery Address" value={bookingDetails.deliveryAddress} onChange={handleChange} /></td>
+            </tr>
+          </tbody>
+        </table>
+        <button onClick={bookParcel}>Book Parcel</button>
+        <button onClick={downloadReceipt}>Download Receipt</button>
       </div>
-
-      {/* Items List Section */}
-      <div className="items">
-        <h2>Items</h2>
-        <ul>
-          {items.map((item, index) => (
-            <li key={index}>
-              {item.name} - ${item.price.toFixed(2)} x {item.quantity}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Total Price Section */}
-      <div className="total">
-        <button onClick={calculateTotal}>Calculate Total</button>
-        <p>Total Price: ${totalPrice.toFixed(2)}</p>
-      </div>
-
-      {/* Invoice Section */}
-      <div className="invoice">
-        <h2>Invoice</h2>
-        <button onClick={generateInvoice}>Show Invoice</button>
-        <button onClick={downloadInvoice}>Download Invoice as PDF</button>
-      </div>
-
-      {/* Modal for Invoice */}
-      {showModal && (
-        <div className="modal">
-          <div className="modal-content">
-            <h2>Invoice</h2>
-            <table>
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Item Name</th>
-                  <th>Quantity</th>
-                  <th>Price</th>
-                  <th>Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                {items.map((item, index) => (
-                  <tr key={index}>
-                    <td>{index + 1}</td>
-                    <td>{item.name}</td>
-                    <td>{item.quantity}</td>
-                    <td>${item.price.toFixed(2)}</td>
-                    <td>${(item.price * item.quantity).toFixed(2)}</td>
-                  </tr>
-                ))}
-                <tr>
-                  <td colSpan="4" style={{ textAlign: "right", fontWeight: "bold" }}>
-                    Total
-                  </td>
-                  <td style={{ fontWeight: "bold" }}>${totalPrice.toFixed(2)}</td>
-                </tr>
-              </tbody>
-            </table>
-            <button onClick={() => setShowModal(false)}>Close</button>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

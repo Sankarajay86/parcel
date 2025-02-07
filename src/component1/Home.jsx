@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import './Home.css';
-// import image1 from './img/Safe.png';
+import image1 from './img/Safe.png';
 import loc from './img/loc.jpg';
 import img1 from './img/img1.png';
 import din from './img/din.jpg';
@@ -16,9 +16,13 @@ function Home() {
 
   return (
     <>
-      <div>
+      <div  style={{
+    
+      height: '100vh', // Full viewport height
+      width: '100vw', // Full viewport width
+    }}>
         {/* Header */}
-        <header className="header11">
+        <header className="header11" >
           <div className="container11">
             <p className="logo11">Sri Ganga Parcel Service</p>
             <nav className="navbar11">
@@ -32,11 +36,11 @@ function Home() {
         </header>
 
         {/* Main Content */}
-        <main><br /><br /><br />
+        <main className='main'><br /><br /><br />
           <article>
             {/* Features Section */}
             <div className="container2">
-          <section className="section1-features1" id="services">
+          <section className="section1-features1" >
               <div className="container1">
                 <p className="section-subtitle2">Features</p>
                 <h2 className="h2-section-title2">What We Provide</h2>
@@ -44,9 +48,9 @@ function Home() {
                   <li>
                     <div className="feature-card2">
                       <div className="card-icon2">
-                        {/* <img src={image1} className="img1" alt="Safe & Secure Icon" /> */}
+                        <img src={image1} className="img1" alt="Safe & Secure Icon" />
                       </div>
-                      <h3 className="h3 card-title2">Safe & Secure</h3>
+                      <h3 className="h3-card-title2">Safe & Secure</h3>
                       <p className="card-text2">We provide top-notch security for your goods throughout the transportation process.</p>
                     </div>
                   </li>
@@ -55,7 +59,7 @@ function Home() {
                       <div className="card-icon2">
                         <img src={loc} className="img1" alt="Multiple Locations Icon" />
                       </div>
-                      <h3 className="h3 card-title2">Multiple Locations</h3>
+                      <h3 className="h3-card-title2">Multiple Locations</h3>
                       <p className="card-text2">We provide multiple drop-off and pickup locations so you don't have to worry.</p>
                     </div>
                   </li>
@@ -64,7 +68,7 @@ function Home() {
                       <div className="card-icon2">
                         <img src={img1} className="img1" alt="Tracking Made Easy Icon" />
                       </div>
-                      <h3 className="h3 card-title2">Tracking Made Easy</h3>
+                      <h3 className="h3-card-title2">Tracking Made Easy</h3>
                       <p className="card-text2">A tracking number for the entire process, so you can find the exact position.</p>
                     </div>
                   </li>
@@ -82,7 +86,7 @@ function Home() {
                     <li className="project-item1" key={index}>
                       <div className="project-card1">
                         <figure className="card-banner1 img-holder">
-                          <img src={img} width="397" height="352" loading="lazy" className="img-cover1" alt={`Project ${index + 1}`} />
+                          <img src={img}  className="img-cover2" alt={`Project ${index + 1}`} />
                         </figure>
                         <div className="card-content1">
                           <p className="card-tag1">{index === 0 ? 'Erode' : index === 1 ? 'Dindigul' : 'Karur'}</p>
@@ -95,7 +99,7 @@ function Home() {
             </section>
 
             {/* Blog Section */}
-            <section className="section1 blog1" id="blog">
+            <section className="section1-blog1" id="blog">
               <div className="container1">
                 <p className="section-subtitle1">Sri Ganga</p>
                 <h2 className="h2-section-title1">Delivery Suite of Solutions</h2>
@@ -104,7 +108,7 @@ function Home() {
                     <li key={index}>
                       <div className="blog-card1">
                         <figure className="card-banner1">
-                          <img src={img} width="770" height="500" loading="lazy" className="img-cover1" alt={`Blog ${index + 1}`} />
+                          <img src={img}  className="img-cover1" alt={`Blog ${index + 1}`} />
                         </figure>
                         <div className="card-content1">
                           <h3 className="h3 card-title1">{index === 0 ? 'B2B Enterprises' : 'Personal Courier'}</h3>

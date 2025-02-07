@@ -4,33 +4,69 @@
 /* Header Styles */
 .header11 {
   background-color: rgba(0, 0, 0, 0.9);
-  padding: 15px 0;
+  
   position: fixed;
-  width: 100%;
+  width: 95%;
   z-index: 1000;
   top: 0;
 }
 
-.header11 .container11  {
+.header11 .container11   {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
   
 }
-
+.container2
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+ 
+  border-radius: 70px;
+  
+}
 .logo11 {
   font-size: 2.5rem;
   color: white;
   font-weight: bold;
   text-transform: uppercase;
+  padding-right:20rem;
 }
 
 .logo11:hover {
   color: var(--dark-orange);
   cursor: pointer;
 }
-
+.img1
+{
+  height: 20rem;
+  width: 20rem;
+  border-radius: 200px;
+}
+.h3-card-title2
+{
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: large;
+}
+.card-text2 
+{
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
+}
+.card-tag1 .card-content1
+{
+ 
+  font-family: 'Times New Roman', Times, serif;
+  color: #f7af5c;
+}
+.img-cover1
+{
+  
+}
 /* Navigation Bar */
 .navbar11 {
   display: flex;
@@ -38,7 +74,7 @@
 
 .navbar-list1 {
   display: flex;
-  gap: 20px;
+  gap: 10px;
   list-style: none;
 }
 
@@ -46,7 +82,7 @@
   color: white;
   font-size: 1.4rem;
   text-decoration: none;
-  padding: 10px 15px;
+padding-left: 2rem;
   transition: color 0.3s ease-in-out;
 }
 
@@ -62,7 +98,6 @@
 .section-project1 {
   background-color: var(--dark-orange);
 
-  padding-top: 20rem;
 }
 
 .h2-section-title1 {
@@ -173,7 +208,7 @@
   }
 }
 /* Centering main content */
-main {
+.main {
   display: flex;
   flex-direction: column;
   justify-content: center;  /* Centers content vertically */
@@ -187,7 +222,7 @@ main {
 /* Projects Section */
 .section-project1 {
   background-color: var(--dark-orange);
- padding-top: 40rem;
+
   text-align: center;
   background-color: black;
   border-radius: 75px;
@@ -239,7 +274,7 @@ main {
 }
 
 /* Image Styling */
-.card-banner1 img {
+.img-cover2 {
   width:15rem;
   height: 15rem;
   border-radius: 10px;
@@ -274,7 +309,7 @@ main {
   .section1.blog1 .container1 {
     max-width: 1200px;
     margin: 0 auto;
-    padding-bottom: 20rem;
+   
   }
   
   .h2.section-title1 {
@@ -291,6 +326,7 @@ main {
     gap: 20px;
     flex-wrap: wrap;  /* Ensures responsiveness */
     padding-top: 20px;
+    
   }
   
   /* Individual Blog Item */
