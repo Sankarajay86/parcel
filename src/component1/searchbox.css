@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f4f6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+
+h4 {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+    color: white;
+}
+
+label {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 6px;
+}
+
+select, button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2563eb;
+}
+
+button:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+}
+/* Container for responsive table */
+.table-container {
+    overflow-x: auto;
+    margin-top: 10px;
+}
+
+/* Styling for the table */
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Table Header Styling */
+.custom-table thead {
+    background-color: #007bff;
+    color: white;
+    text-align: left;
+}
+
+/* Table Rows and Columns */
+.custom-table th, .custom-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+.td{
+    color: black;
+}
+
+/* Zebra Striping for Better Readability */
+.custom-table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+/* Hover Effect on Rows */
+.custom-table tbody tr:hover {
+    background-color: #e2e6ea;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .custom-table th, .custom-table td {
+        padding: 8px;
+    }
+}

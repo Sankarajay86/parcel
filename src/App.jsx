@@ -7,6 +7,7 @@ import Page from './component1/Page';
 import User from './component1/User';
 import Home from './component1/Home';
 import Book from './component1/Book';
+import SearchBox from './component1/SearchBox';
 function App() {
 
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/User" element={<User />}/>
         <Route path="/Home" element={<Home />}/>
         <Route path="/book" element={<Book />}/>
+        <Route path="/serach" element={<SearchBox />}/>
       </Routes>
     </Router>
     </>

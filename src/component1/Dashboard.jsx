@@ -8,6 +8,7 @@ import { onValue } from 'firebase/database';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Vehicles from './Vechile.jsx';
+import Order from './order.jsx';
 import "./vechile.css";
 const Dashboard = () => {
    const [allValue, setAllValue] = useState([]); 
@@ -55,7 +56,9 @@ const Dashboard = () => {
           >
             <h3>Customers</h3>
           </a>
-          <a href="#">
+          <a href="#"
+            className={view === 'order' ? 'active' : ''}
+            onClick={() => setView('order')}>
             <h3>Orders</h3>
           </a>
           <a href="#">
@@ -142,6 +145,12 @@ const Dashboard = () => {
             <Vehicles></Vehicles>
                 </div>
           </div>
+          </div>
+        )}
+        {view === 'order' && (
+          <div>
+            <p>Orders</p>
+            <Order></Order> 
           </div>
         )}
       </main>

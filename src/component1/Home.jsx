@@ -27,8 +27,8 @@ function Home() {
             <p className="logo11">Sri Ganga Parcel Service</p>
             <nav className="navbar11">
               <ul className="navbar-list1">
-                <li><Link to="/book" className="navbar-link1">Booking</Link></li>
-                <li><Link to="" className="navbar-link1">Contact</Link></li>
+                <li><Link to="/serach" className="navbar-link1">Booking</Link></li>
+                <li><Link to="/book" className="navbar-link1">Contact</Link></li>
                 <li><Link to="" className="navbar-link1">Profile</Link></li>
               </ul>
             </nav>
