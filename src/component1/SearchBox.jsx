@@ -11,7 +11,7 @@ const SearchTagname = () => {
         { value: "Sivakasi", label: "Sivakasi" },
         { value: "Karur", label: "Karur" },
         { value: "Dindigul", label: "Dindigul" },
-        { value: "Houston", label: "Houston" },
+        { value: "Erode", label: "Erode" },
     ];
 
     const [from, setFrom] = useState("");
