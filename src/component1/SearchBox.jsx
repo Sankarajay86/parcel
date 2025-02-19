@@ -58,7 +58,7 @@ const SearchTagname = () => {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-100">
+        <div className="flex items-center justify-center min-h-screen bg-gray-100 search">
             <div className="bg-white p-6 rounded-lg shadow-lg w-96">
                 <h4 className="text-center text-lg font-semibold mb-4">Find Your Route</h4>
 
@@ -77,7 +77,7 @@ const SearchTagname = () => {
                                 setTo(""); // Reset "To" when "From" changes
                             }}
                         >
-                            <option value="" disabled>Select Starting Location</option>
+                            <option value="" disabled>Select From Location</option>
                             {cities.map(city => (
                                 <option key={city.value} value={city.value}>{city.label}</option>
                             ))}
@@ -93,7 +93,7 @@ const SearchTagname = () => {
                             onChange={(e) => setTo(e.target.value)}
                             disabled={!from} // Disable until "From" is selected
                         >
-                            <option value="" disabled>Select Destination</option>
+                            <option value="" disabled>Select  To Destination</option>
                             {availableToCities.map(city => (
                                 <option key={city.value} value={city.value}>{city.label}</option>
                             ))}

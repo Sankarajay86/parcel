@@ -17,7 +17,7 @@ function Home() {
   return (
     <>
       <div  style={{
-    
+      marginRight:'3rem',
       height: '100vh', // Full viewport height
       width: '100vw', // Full viewport width
     }}>
@@ -28,8 +28,7 @@ function Home() {
             <nav className="navbar11">
               <ul className="navbar-list1">
                 <li><Link to="/serach" className="navbar-link1">Booking</Link></li>
-                <li><Link to="/book" className="navbar-link1">Contact</Link></li>
-                <li><Link to="" className="navbar-link1">Profile</Link></li>
+                <li><Link to="" className="navbar-link1">Contact</Link></li>
               </ul>
             </nav>
           </div>
@@ -48,7 +47,7 @@ function Home() {
                   <li>
                     <div className="feature-card2">
                       <div className="card-icon2">
-                        {/* <img src={image1} className="img1" alt="Safe & Secure Icon" /> */}
+                        <img src='https://5.imimg.com/data5/SELLER/Default/2022/12/AV/FD/QS/33594867/overnight-delivery-courier-service-500x500.png' className="img1" alt="Safe & Secure Icon" /> 
                       </div>
                       <h3 className="h3-card-title2">Safe & Secure</h3>
                       <p className="card-text2">We provide top-notch security for your goods throughout the transportation process.</p>
@@ -129,7 +128,7 @@ function Home() {
 
         {/* Footer */}
         <footer className="footer1">
-          <div className="container1">
+          <div className="container10">
             <div className="footer-top section1">
               <div className="footer-brand1">
                 <Link to="/" className="logo1">GPS</Link>

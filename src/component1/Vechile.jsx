@@ -12,7 +12,7 @@ const Vehicles = () => {
   const [selectedVehicleId, setSelectedVehicleId] = useState(null);
   const [vehicles, setVehicles] = useState([]);
 
-  const cities = ["Sivakasi", "Karur", "Dindigul", "Houston"];
+  const cities = ["Sivakasi", "Karur", "Dindigul", "Erode"];
   const dbRef = collection(db, "Messages");
 
   // Fetch vehicles from Firestore in real-time

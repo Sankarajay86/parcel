@@ -7,6 +7,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background-image: url('https://media3.giphy.com/media/3o7qDNfxtNRtLVv8qs/giphy.gif?cid=6c09b952nuk8djak8p55ti8b2f45co67dhdb06n4an31ffsi&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g');
 }
 
 .container {
@@ -101,4 +102,14 @@ button:disabled {
     .custom-table th, .custom-table td {
         padding: 8px;
     }
+}
+.search
+{
+    background-image: url('https://cdn.dribbble.com/userupload/19648893/file/original-66ef45101a59559f029e1d76f0ebd03d.gif');
+    width: 30rem;
+    height: 30rem;
+    margin-bottom: 5rem;
+    background-repeat: no-repeat;
+    border-radius: 90px;
+    background-size: cover;
 }

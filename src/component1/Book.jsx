@@ -31,8 +31,8 @@ const Book = () => {
 
   // Rate Constants
   const baseFee = 50;
-  const weightRate = 10;
-  const distanceRate = 5;
+  const weightRate = 3;
+  const distanceRate = 2;
 
   // Calculate Distance
   useEffect(() => {
@@ -65,7 +65,6 @@ const Book = () => {
     receiverPhone: "",
     deliveryAddress: "",
     itemType: "Documents",
-    insurance: "",
   });
 
   const [bookingId, setBookingId] = useState(null);
@@ -149,13 +148,16 @@ const Book = () => {
           <tr>
             <td>Sender Phone:</td>
             <td>
-              <input
-                type="text"
-                name="senderPhone"
-                placeholder="Sender Phone"
-                value={bookingDetails.senderPhone}
-                onChange={handleChange}
-              />
+            <input
+      type="tel"
+      name="senderPhone"
+      maxLength="10"
+      pattern="^[0-9]{10}$"
+      placeholder="Sender Phone"
+      value={bookingDetails.senderPhone}
+      onInput={(e) => e.target.value = e.target.value.replace(/[^0-9]/g, '').slice(0, 10)}
+      onChange={handleChange}
+    />
             </td>
           </tr>
           <tr>
@@ -185,13 +187,16 @@ const Book = () => {
           <tr>
             <td>Receiver Phone:</td>
             <td>
-              <input
-                type="text"
-                name="receiverPhone"
-                placeholder="Receiver Phone"
-                value={bookingDetails.receiverPhone}
-                onChange={handleChange}
-              />
+            <input
+      type="tel"
+      name="receiverPhone"
+      maxLength="10"
+      pattern="^[0-9]{10}$"
+      placeholder="Receiver Phone"
+      value={bookingDetails.receiverPhone}
+      onInput={(e) => e.target.value = e.target.value.replace(/[^0-9]/g, '').slice(0, 10)}
+      onChange={handleChange}
+    />
             </td>
           </tr>
           <tr>
@@ -225,24 +230,24 @@ const Book = () => {
                 value={bookingDetails.itemType}
                 onChange={handleChange}
               >
-                <option value="Documents">Documents</option>
-                <option value="Electronics">Electronics</option>
-                <option value="Clothes">Clothes</option>
+                <option value="Documents">Documents & Papers</option>
+                    <option value="Books">Books & Magazines</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Clothes">Clothes & Apparel</option>
+                    <option value="Shoes">Shoes & Accessories</option>
+                    <option value="Medicines">Medicines & Healthcare Products</option>
+                    <option value="Food">Food Items (Packaged & Dry Foods)</option>
+                    <option value="HomeAppliances">Home Appliances</option>
+                    <option value="Toys">Toys & Games</option>
+                    <option value="Beauty">Beauty & Personal Care Items</option>
+                    <option value="Stationery">Stationery & Office Supplies</option>
+                    <option value="Automobile">Automobile Accessories</option>
+                    <option value="Gifts">Gift Items & Souvenirs</option>
+                    <option value="Handicrafts">Handicrafts & Artwork</option>
               </select>
             </td>
           </tr>
-          <tr>
-            <td>Insurance:</td>
-            <td>
-              <input
-                type="text"
-                name="insurance"
-                placeholder="Insurance"
-                value={bookingDetails.insurance}
-                onChange={handleChange}
-              />
-            </td>
-          </tr>
+          
         </tbody>
       </table>
 

@@ -46,5 +46,17 @@
   height: 150px;
   margin-right: 10px;
 }
-  
-  
+.gg
+{
+    width: 14rem;
+    height: 3rem;
+    background-color: orange;
+    color: red;
+    text-transform:capitalize;
+    font-weight: bold;
+}
+.gg:hover
+{
+  color: orange;
+  background-color: red;
+}

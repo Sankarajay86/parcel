@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './Page.css';
+import './User.css';
 import { dataRef } from '../firebase/firebaseconfig.js';
 import { push, onValue } from 'firebase/database'; // Import the required methods
 import { useLocation } from 'react-router-dom';
@@ -45,22 +46,22 @@ function User() {
       <div>
         {/* Form for user input */}
         <div className="form-container">
-        <label htmlFor="name" className="label">Contact Us</label><br />
-          <label htmlFor="name" className="label">Name</label><br />
+        <label htmlFor="name" className="label1">Contact Us</label>
+          <label htmlFor="name" className="label">Name</label>
           <input 
             value={name} 
             className="input-field"
             placeholder="Enter your name"  
             onChange={(e) => setName(e.target.value)} 
-          /><br /><br />
-          <label htmlFor="gmail" className="label">Gmail</label><br />
+          />
+          <label htmlFor="gmail" className="label">Gmail</label>
           <input 
             value={displayName} 
             className="input-field"
             placeholder="Enter your name"  
             onChange={(e) => setName(e.target.value)} 
-          /><br />
-          <label htmlFor="name" className="label">Number</label><br />
+          />
+          <label htmlFor="name" className="label">Number</label>
           <input
           id="phone-input"
           type="tel"
@@ -69,9 +70,7 @@ function User() {
           placeholder="Enter your Phone Number"
           onChange={handleInputChange}
           ></input>
-          
-          <br></br><br />
-          <button className="button" onClick={HandleAdd}>Submit</button>
+          <button className="buttons" onClick={HandleAdd}>Submit</button>
         </div>
          {/* <ul>
             {allValue.map((item, index) => (

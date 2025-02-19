@@ -1,0 +1,18 @@
+.label1
+{
+    color:white;
+    font-weight: bold;
+}
+.form-container
+{
+    background-color:gray;
+    text-align: center;
+    display:flexbox;
+    max-width: 100%;
+}
+.buttons
+{
+    width: 7rem;
+    height: 3rem;
+    
+}
