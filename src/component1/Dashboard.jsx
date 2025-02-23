@@ -1,15 +1,10 @@
 import './Dashboard.css';
-import './constants/recent-order-data';
-import './constants/update-data';
-import './constants/sales-analytics-data';
-import './constants/style.css';
 import { dataRef } from '../firebase/firebaseconfig.js';
 import { onValue } from 'firebase/database';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Vehicles from './Vechile.jsx';
 import Order from './order.jsx';
-import "./vechile.css";
 const Dashboard = () => {
    const [allValue, setAllValue] = useState([]); 
    const navigate = useNavigate(); 
@@ -37,7 +32,7 @@ const Dashboard = () => {
       backgroundAttachment: 'fixed',
       backgroundPosition: 'center',
       height: '100vh', // Full viewport height
-      width: '100vw', // Full viewport width
+      width: '100%', // Full viewport width
     }}
     >
       <aside>
@@ -111,24 +106,29 @@ const Dashboard = () => {
           <div className="insights">            
             <div className="user-list">
                 {allValue.length > 0 ? (
-                    <table className='custom-table'>
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Number</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        {allValue.slice(2).map((item, index) => (
-                         <tr key={index}>
-                         <td>{item.name}</td>
-                        <td>{item.displayName}</td>
-                        <td>{item.number}</td>
+                    <table className="w-full border-collapse border border-gray-300 shadow-lg rounded-lg overflow-hidden" style={{
+                      color:"black"
+                    }}>
+                    <thead>
+                      <tr className="bg-blue-500 text-black text-left text-sm sm:text-base">
+                        <th className="p-3 border-b">Name</th>
+                        <th className="p-3 border-b">Email</th>
+                        <th className="p-3 border-b">Number</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {allValue.slice(2).map((item, index) => (
+                        <tr
+                          key={index}
+                          className="hover:bg-gray-100 transition duration-200 text-sm sm:text-base"
+                        >
+                          <td className="p-3 border-b border-gray-200">{item.name}</td>
+                          <td className="p-3 border-b border-gray-200">{item.displayName}</td>
+                          <td className="p-3 border-b border-gray-200">{item.number}</td>
                         </tr>
-                         ))}
-                        </tbody>
-                    </table>
+                      ))}
+                    </tbody>
+                  </table>
                 ) : (
                     <p>Loading users...</p>
                     

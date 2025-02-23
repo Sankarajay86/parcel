@@ -9,7 +9,7 @@ import karur from './img/karur.jpg';
 import erode from './img/erode.png';
 import suit from './img/suit.png';
 import suit1 from './img/suit1.png';
-
+import Bolg from './blog.jsx'
 function Home() {
   const imagePaths = [erode, din, karur];
   const imgsuit = [suit, suit1];
@@ -27,8 +27,9 @@ function Home() {
             <p className="logo11">Sri Ganga Parcel Service</p>
             <nav className="navbar11">
               <ul className="navbar-list1">
-                <li><Link to="/serach" className="navbar-link1">Booking</Link></li>
-                <li><Link to="" className="navbar-link1">Contact</Link></li>
+                <li><a href="/serach" className="navbar-link1">Booking</a></li>
+                <li><a href="#footer1"   className="navbar-link1">Contact</a></li>
+                <li><a href="/blog"   className="navbar-link1">Blog</a></li>
               </ul>
             </nav>
           </div>
@@ -96,6 +97,7 @@ function Home() {
                 </ul>
               </div>
             </section>
+           
 
             {/* Blog Section */}
             <section className="section1-blog1" id="blog">
@@ -127,7 +129,7 @@ function Home() {
         </main>
 
         {/* Footer */}
-        <footer className="footer1">
+        <footer className="footer1" id="footer1">
           <div className="container10">
             <div className="footer-top section1">
               <div className="footer-brand1">

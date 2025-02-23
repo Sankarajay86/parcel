@@ -98,35 +98,44 @@ const Vehicles = () => {
 
       <div className="user-list">
         {vehicles.length > 0 ? (
-          <table className="custom-table">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>From</th>
-                <th>To</th>
-                <th>Actions</th>
+          <table className="w-full border-collapse border border-gray-300 shadow-lg rounded-lg overflow-hidden">
+          <thead>
+            <tr className="bg-blue-500 text-white text-left text-sm sm:text-base">
+              <th className="p-3 border-b">Name</th>
+              <th className="p-3 border-b">From</th>
+              <th className="p-3 border-b">To</th>
+              <th className="p-3 border-b">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {vehicles.map((vehicle) => (
+              <tr
+                key={vehicle.id}
+                className="hover:bg-gray-100 transition duration-200 text-sm sm:text-base"
+              >
+                <td className="p-3 border-b border-gray-200">{vehicle.vecName}</td>
+                <td className="p-3 border-b border-gray-200">{vehicle.vecfrom}</td>
+                <td className="p-3 border-b border-gray-200">{vehicle.vecto}</td>
+                <td className="p-3 border-b border-gray-200">
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => removeVehicle(vehicle.id)}
+                      className="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-700 transition"
+                    >
+                      Remove
+                    </button>
+                    <button
+                      onClick={() => handleEdit(vehicle)}
+                      className="bg-green-500 text-white px-3 py-1 rounded-md hover:bg-green-700 transition"
+                    >
+                      Edit
+                    </button>
+                  </div>
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {vehicles.map((vehicle) => (
-                <tr key={vehicle.id}>
-                  <td>{vehicle.vecName}</td>
-                  <td>{vehicle.vecfrom}</td>
-                  <td>{vehicle.vecto}</td>
-                  <td>
-                    <div className="action-buttons">
-                      <button onClick={() => removeVehicle(vehicle.id)} className="remove-vehicle-btn">
-                        Remove
-                      </button>
-                      <button onClick={() => handleEdit(vehicle)} className="edit-vehicle-btn">
-                        Edit
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+            ))}
+          </tbody>
+        </table>
         ) : (
           <p>No vehicles found.</p>
         )}

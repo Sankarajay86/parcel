@@ -8,6 +8,7 @@ import User from './component1/User';
 import Home from './component1/Home';
 import Book from './component1/Book';
 import SearchBox from './component1/SearchBox';
+import Blog from './component1/blog.jsx'
 function App() {
 
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/Home" element={<Home />}/>
         <Route path="/book" element={<Book />}/>
         <Route path="/serach" element={<SearchBox />}/>
+        <Route path="/blog" element={<Blog />}/>
       </Routes>
     </Router>
     </>

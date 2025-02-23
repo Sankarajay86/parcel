@@ -47,16 +47,15 @@ a {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-
- background-repeat: no-repeat;
- background-size: cover;
-
+   margin-left: 100px;
+  
 }
 .sidebar a {
   display: flex;
   align-items: center;
   gap: 1rem;
   padding: 1rem;
+  
   color: var(--color-dark);
   transition: all 0.3s ease;
   color: orange;
@@ -90,18 +89,18 @@ main {
 .user-list table {
   width: 100%;
   border-collapse: collapse;
-  background: var(--color-white);
+  background: black;
   border-radius: var(--card-border-radius);
   box-shadow: var(--box-shadow);
 }
 .user-list th, .user-list td {
   padding: 0.8rem;
   text-align: left;
-  border-bottom: 1px solid var(--color-light);
+  
 }
 .user-list th {
   background: var(--color-primary);
-  color: var(--color-white);
+  color: black;
 }
 .user-list td:last-child {
   text-align: center;
