@@ -29,7 +29,7 @@ function Home() {
               <ul className="navbar-list1">
                 <li><a href="/serach" className="navbar-link1">Booking</a></li>
                 <li><a href="#footer1"   className="navbar-link1">Contact</a></li>
-                <li><a href="/blog"   className="navbar-link1">Blog</a></li>
+                
               </ul>
             </nav>
           </div>
