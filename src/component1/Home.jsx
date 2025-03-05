@@ -22,18 +22,19 @@ function Home() {
       width: '100vw', // Full viewport width
     }}>
         {/* Header */}
-        <header className="header11" >
-          <div className="container11">
-            <p className="logo11">Sri Ganga Parcel Service</p>
-            <nav className="navbar11">
-              <ul className="navbar-list1">
-                <li><a href="/serach" className="navbar-link1">Booking</a></li>
-                <li><a href="#footer1"   className="navbar-link1">Contact</a></li>
-                
-              </ul>
-            </nav>
-          </div>
-        </header>
+        <header className="header11">
+        <div className="container11">
+          
+          <nav className="navbar11">
+          Sri Ganga Parcel Service
+            <ul className="navbar-list1">
+              <li><a href="/serach" className="navbar-link1">Booking</a></li>
+              <li><a href="#footer1" className="navbar-link1">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
 
         {/* Main Content */}
         <main className='main'><br /><br /><br />
@@ -145,6 +146,9 @@ function Home() {
             </div>
           </div>
         </footer>
+        <div>
+          
+        </div>
       </div>
     </>
   );

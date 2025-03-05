@@ -1,30 +1,31 @@
 /* Global Styles */
-body, html {
-  margin: 0;
-  padding: 0;
-  font-family: 'Arial', sans-serif;
-  box-sizing: border-box;
-  background-color: #f8f9fa;
-}
 
 /* Header */
+.container11 {
+  display: grid;
+  align-items: center;
+  justify-content: space-between; /* Keeps logo left and nav right */
+  max-width: 1600px;
+  margin: auto;
+  background-color: gray;
+}
+
 .header11 {
-  background-color:black;
   color: white;
   padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  margin-top: -500px;
 }
 
 .logo11 {
-  font-size: 2rem;
+  font-size: 15px;
   font-weight: bold;
+  width: 5rem;
 }
 .logo11:hover
 {
   color: green;
 }
+
 .navbar11 {
   display: flex;
   margin-left: auto;
@@ -44,27 +45,34 @@ body, html {
   color: white;
   font-size: 1rem;
   transition: color 0.3s;
+  border-color:black;
+  margin-bottom: -50px;
+  font-size: larger;
+  
 }
 
 .navbar-link1:hover {
   color: #ffcc00;
+  transition: cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 /* Main Content */
 .main {
   text-align: center;
   padding: 2rem;
-  background-color: black;
+  background-color: transparent;
   color: white;
+  margin-top: 3rem;
 }
 
 /* Features Section */
 .section1-features1 {
-  background: white;
+  background: none;
   padding: 3rem 2rem;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
+  margin-top:-200px;
 }
 
 .features-list2 {

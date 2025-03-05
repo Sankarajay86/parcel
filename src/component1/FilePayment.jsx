@@ -24,7 +24,7 @@ const FilePayment = ({ amount, onSuccess }) => {
       prefill: {
         name: "Sankar Ajay",
         email: "sankarajay86.com",
-        contact: "",
+        contact: "9344104547",
       },
       theme: {
         color: "#3399cc",

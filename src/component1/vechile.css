@@ -1,40 +1,73 @@
+
+/* Add Vehicle Button */
 .add-vehicle-btn {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    height: 50px;
-    
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.add-vehicle-btn:hover {
+  background: linear-gradient(135deg, #0056b3, #004080);
+  transform: translateY(-2px);
+}
+
+/* Modal Styling */
+.modal {
+ display: none;
+ text-align: right;
+ padding: 25px;
+ animation: fadeIn 0.3s ease-in-out;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
   }
-  .add-vehicle-btn:hover{
-    background-color: rgb(253, 251, 251);
-    color:  #007bff;
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
-  .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .modal-content {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    width: 300px;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
+}
+
+
+
+/* Form Styling */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group select, 
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.form-group select:focus, 
+.form-group input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Modal Buttons */
   .modal-buttons button {
     margin: 5px;
     padding: 10px 20px;
@@ -52,123 +85,116 @@
     background-color: #6c757d;
     color: #fff;
   }
-  .remove-vehicle-btn {
-    padding: 5px 10px;
-    background-color: #ff4d4f;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .remove-vehicle-btn:hover {
-    background-color: #e33a3d;
-  }
-  .custom-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-family: Arial, sans-serif;
-    margin: 20px 0;
-    border: 1px solid #131111;
-  }
-  
-  .custom-table thead {
-    background-color: #0f0f0f;
-  }
-  
-  .custom-table th,
-  .custom-table td {
-    padding: 12px 15px;
-    text-align: left;
-    border: 1px solid #0f0f0f;
-    margin-bottom: 15px;
-  }
-  
-  .custom-table th {
-    font-weight: bold;
-    color:black;
-  }
-  
-  .custom-table tbody tr:nth-child(even) {
-    background-color: #fcf2e5;
-  }
-  
-  .custom-table tbody tr:hover {
-    background-color: #f3ecec;
-  }
-  
-  .custom-table .remove-vehicle-btn {
-    background-color: #ff4d4d;
-    color: #fff;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 4px;
 
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .custom-table .remove-vehicle-btn:hover {
-    background-color: #e60000;
-  }
-  
-  @media (max-width: 768px) {
-    .custom-table thead {
-      display: none;
-    }
-  
-    .custom-table tbody tr {
-      display: block;
-      margin-bottom: 15px;
-      border: 1px solid #140a0a;
-    }
-  
-    .custom-table tbody td {
-      display: flex;
-      justify-content: space-between;
-      padding: 10px;
-      border: none;
-      border-bottom: 1px solid #0a0a0a;
-    }
-  
-    .custom-table tbody td:last-child {
-      border-bottom: none;
-    }
-  .td{
-    border-bottom: 1px solid #0a0a0a;
-    color: black;
-  }
-    
-  }
-  /* Wrapper for action buttons */
-.action-buttons {
-  display: flex;
-  gap: 10px; /* Spacing between buttons */
-  justify-content: center; /* Center-align the buttons horizontally */
-  align-items: center; /* Vertically align buttons */
+/* Table Styling */
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-/* Button styles (optional improvements) */
-.remove-vehicle-btn,
+.custom-table thead {
+  background: #007bff;
+  color: white;
+}
+
+.custom-table th, 
+.custom-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.custom-table tbody tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.custom-table tbody tr:hover {
+  background: #f1f1f1;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.remove-vehicle-btn, 
 .edit-vehicle-btn {
   padding: 8px 12px;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
 }
 
 .remove-vehicle-btn {
-  background-color: #ff4d4d; /* Red for remove */
+  background: #ff4d4d;
   color: white;
 }
 
 .edit-vehicle-btn {
-  background-color: #4caf50; /* Green for edit */
+  background: #28a745;
   color: white;
 }
 
-.remove-vehicle-btn:hover,
-.edit-vehicle-btn:hover {
-  opacity: 0.9; /* Slight transparency on hover */
+.remove-vehicle-btn:hover {
+  background: #e60000;
 }
 
+.edit-vehicle-btn:hover {
+  background: #218838;
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+  .custom-table thead {
+    display: none;
+  }
+
+  .custom-table tbody tr {
+    display: block;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+
+  .custom-table tbody td {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .custom-table tbody td:last-child {
+    border-bottom: none;
+  }
+}
+
+.table-container {
+  width: 100%;
+  max-height: 400px; /* Adjust height as needed */
+  overflow-y: auto;
+  border: 1px solid #ddd;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+th {
+  background-color: #f4f4f4;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}

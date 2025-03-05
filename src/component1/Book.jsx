@@ -86,6 +86,7 @@ const Book = () => {
         deliveryCharge,
         paymentId,
         bookingId: "",
+      
       });
 
       await updateDoc(doc(db, "parcelBookings", docRef.id), { bookingId: docRef.id });

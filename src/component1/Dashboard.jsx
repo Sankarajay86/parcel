@@ -5,23 +5,33 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Vehicles from './Vechile.jsx';
 import Order from './order.jsx';
+import { db } from "../firebase/firebaseconfig.js";
+import { collection, getDocs } from "firebase/firestore";
 const Dashboard = () => {
    const [allValue, setAllValue] = useState([]); 
+   const [totalOrders, setTotalOrders] = useState(0);
    const navigate = useNavigate(); 
       useEffect(() => {
-          const unsubscribe = onValue(dataRef, (snapshot) => { // Listen for changes
-              const data = snapshot.val(); // Get the data from Firebase
-              const getData = data ? Object.values(data) : []; // Handle case when no data exists
-              setAllValue(getData); // Update state with data
+          const unsubscribe = onValue(dataRef, (snapshot) => { 
+              const data = snapshot.val(); 
+              const getData = data ? Object.values(data) : []; 
+              setAllValue(getData);
           });
       
-          return () => unsubscribe(); // Cleanup listener on component unmount
+          return () => unsubscribe(); 
       }, []);
-  const [view, setView] = useState('dashboard'); // State to toggle between dashboard and customers view
+  const [view, setView] = useState('dashboard'); 
   const logout = () => {
-    navigate('/'); // Navigate to the /Admin page
+    navigate('/'); 
   };
 
+  const totalUsers = allValue.length;
+   const activeUsers = allValue.filter(user => user.isActive).length;
+    const userPercentage = totalUsers > 0 ? ((activeUsers / totalUsers) * 100).toFixed(1) : 0;
+    
+    useEffect(() => { const fetchOrders = async () => { try { const ordersCollection = collection(db, 'parcelBookings'); 
+      const snapshot = await getDocs(ordersCollection); setTotalOrders(snapshot.size); } catch (error) { console.error("Error fetching orders: ", error); } }; 
+      fetchOrders(); }, []);
 
   return (
     <div className="container"
@@ -33,6 +43,9 @@ const Dashboard = () => {
       backgroundPosition: 'center',
       height: '100vh', // Full viewport height
       width: '100%', // Full viewport width
+      display:'flex',
+      marginBottom:'40%'
+
     }}
     >
       <aside>
@@ -74,27 +87,14 @@ const Dashboard = () => {
       <main>
         {view === 'dashboard' && (
           <div>
-            <h1>Dashboard</h1>
             <div className="insights">
-              <div className="sales">
-                <span className="material-icons-sharp">analytics</span>
-                <div className="middle">
-                  <div className="left">
-                    <h3>Total Sales</h3>
-                    <h1>$25,024</h1>
-                  </div>
-                  <div className="progress">
-                    <svg>
-                      <circle cx="38" cy="38" r="36"></circle>
-                    </svg>
-                    <div className="number">
-                      <p>81%</p>
-                    </div>
-                  </div>
-                </div>
-                <small className="text-muted">Last 24 hours</small>
-              </div>
-              {/* Add more insights sections here */}
+            <h1>Dashboard</h1><div className="insights">
+               <div className="stats-card"> <h3>Total Users</h3> <h1>{totalUsers-2}</h1> </div> <div className="stats-card"> <h3>Active Users</h3> <h1>{activeUsers}</h1> </div> <div className="stats-card"> <h3>Active User Percentage</h3> <h1>{userPercentage}%</h1> </div> </div>
+               <br></br>
+               <div className="stats-card">
+               <h3>Total Orders</h3>
+               <h1>{totalOrders}</h1>
+               </div>
             </div>
           </div>
         )}

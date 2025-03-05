@@ -1,13 +1,7 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f3f4f6;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-image: url('https://media3.giphy.com/media/3o7qDNfxtNRtLVv8qs/giphy.gif?cid=6c09b952nuk8djak8p55ti8b2f45co67dhdb06n4an31ffsi&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g');
+   
+   
+    /* background-image: url('https://media3.giphy.com/media/3o7qDNfxtNRtLVv8qs/giphy.gif?cid=6c09b952nuk8djak8p55ti8b2f45co67dhdb06n4an31ffsi&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g'); */
 }
 
 .container {
@@ -84,7 +78,7 @@ button:disabled {
     border-bottom: 1px solid #ddd;
 }
 .td{
-    color: black;
+    color:whitesmoke;
 }
 
 /* Zebra Striping for Better Readability */
@@ -106,10 +100,10 @@ button:disabled {
 .search
 {
     background-image: url('https://cdn.dribbble.com/userupload/19648893/file/original-66ef45101a59559f029e1d76f0ebd03d.gif');
-    width: 30rem;
+    width: 34rem;
     height: 30rem;
     margin-bottom: 5rem;
     background-repeat: no-repeat;
-    border-radius: 90px;
+    border-radius: 10px;
     background-size: cover;
 }
