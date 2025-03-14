@@ -20,9 +20,11 @@
 
 /* Modal Styling */
 .modal {
- display: none;
- text-align: right;
+ text-align: center;
  padding: 25px;
+ position: fixed; 
+ background: black;
+ align-items: center;
  animation: fadeIn 0.3s ease-in-out;
 }
 
@@ -194,7 +196,7 @@ th, td {
 }
 th {
   background-color: #f4f4f4;
-  position: sticky;
+  position: static;
   top: 0;
   z-index: 2;
 }
