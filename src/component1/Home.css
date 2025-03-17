@@ -34,14 +34,14 @@
   display: grid;
   align-items: center;
   justify-content: space-between; /* Keeps logo left and nav right */
-  max-width: 1600px;
+  max-width: 1800px;
   margin: auto;
   background-color: gray;
 }
 
 .header11 {
   color: white;
-  padding: 1rem 2rem;
+  padding: 1rem 1rem;
   margin-top: -500px;
 }
 

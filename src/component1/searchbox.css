@@ -24,6 +24,7 @@ label {
     font-weight: 500;
     display: block;
     margin-bottom: 6px;
+    color: white;
 }
 
 select, button {
@@ -78,7 +79,7 @@ button:disabled {
     border-bottom: 1px solid #ddd;
 }
 .td{
-    color:whitesmoke;
+    color:black;
 }
 
 /* Zebra Striping for Better Readability */
@@ -106,4 +107,8 @@ button:disabled {
     background-repeat: no-repeat;
     border-radius: 10px;
     background-size: cover;
+}
+#date
+{
+    width: 8rem;
 }

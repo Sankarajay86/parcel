@@ -69,9 +69,7 @@ const Dashboard = () => {
             onClick={() => setView('order')}>
             <h3>Orders</h3>
           </a>
-          <a href="#">
-            <h3>Reports</h3>
-          </a>
+          
           <a href="#"
           className={view === 'add' ? 'active' : ''}
           onClick={() => setView('add')}
@@ -86,9 +84,9 @@ const Dashboard = () => {
 
       <main>
         {view === 'dashboard' && (
-          <div>
+          <div> <h1>Dashboard</h1>
             <div className="insights">
-            <h1>Dashboard</h1><div className="insights">
+           <div className="insights">
                <div className="stats-card"> <h3>Total Users</h3> <h1>{totalUsers-2}</h1> </div> <div className="stats-card"> <h3>Active Users</h3> <h1>{activeUsers}</h1> </div> <div className="stats-card"> <h3>Active User Percentage</h3> <h1>{userPercentage}%</h1> </div> </div>
                <br></br>
                <div className="stats-card">

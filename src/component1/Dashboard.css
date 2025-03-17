@@ -74,8 +74,8 @@ main {
 
 .insights {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 1.6rem;
+  grid-template-columns: 1fr 0.1fr 1fr;
+  gap: -1rem;
 }
 
 .insights > div {

@@ -72,7 +72,7 @@ const SearchTagname = () => {
 
                 <form onSubmit={handleSearch}>
                     <div className="mb-4">
-                        <label htmlFor="fromLocation" className="block font-medium mb-1">From:</label>
+                        <label htmlFor="fromLocation" className="white font-medium mb-1">From:</label>
                         <select 
                             id="fromLocation"
                             className="w-full p-2 border rounded-md"

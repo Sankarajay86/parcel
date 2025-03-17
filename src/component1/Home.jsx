@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import "./Home.css";
@@ -9,7 +9,9 @@ import karur from "./img/karur.jpg";
 import erode from "./img/erode.png";
 import suit from "./img/suit.png";
 import suit1 from "./img/suit1.png";
-
+import { db } from "../firebase/firebaseconfig.js";
+import { collection, getDocs } from "firebase/firestore";
+import Order from './orders.jsx'
 function Home() {
   const [showProfilePopup, setShowProfilePopup] = useState(false);
   const [showOrderPopup, setShowOrderPopup] = useState(false);
@@ -17,6 +19,30 @@ function Home() {
   const imgsuit = [suit, suit1];
   const location = useLocation();
   const displayName = location.state?.displayName || "Guest";
+  const [userOrder, setUserOrder] = useState(null); 
+ const [orders, setOrders] = useState([]);
+
+ useEffect(() => {
+  const fetchOrders = async () => {
+    try {
+      const querySnapshot = await getDocs(collection(db, "parcelBookings"));
+      const ordersList = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+
+      // Filter orders only if displayName is available
+      if (displayName && displayName !== "Guest") {
+        const userOrders = ordersList.filter(order => order.senderName === displayName);
+        setOrders(userOrders);
+      } else {
+        setOrders([]); // No orders for "Guest"
+      }
+    } catch (error) {
+      console.error("Error fetching orders: ", error);
+    }
+  };
+
+  fetchOrders();
+}, [displayName, db]); // Added db to dependencies
+
 
   return (
     <>
@@ -27,18 +53,19 @@ function Home() {
             <nav className="navbar11">
               <span className="logo-text">Sri Ganga Parcel Service</span>
               <ul className="navbar-list1">
-                <li>
+                <li><button className="navbar-link1" >
                 <a href={`/serach?displayName=${encodeURIComponent(displayName)}`} className="navbar-link1">
-                Go to Search
-              </a>
+                Book
+              </a></button>
 
 
                   
                 </li>
                 <li>
+                <button className="navbar-link1" >
                   <a href="#footer1" className="navbar-link1">
                     Contact
-                  </a>
+                  </a></button>
                 </li>
                 <li>
                   <button className="navbar-link1" onClick={() => setShowOrderPopup(true)}>
@@ -70,18 +97,17 @@ function Home() {
 
         {/* Order Popup */}
         {showOrderPopup && (
-          <div className="popup-overlay">
-            <div className="popup-box">
-              <h3>Order Details</h3>
-              <p>Name: {displayName}</p>
-              <p>Order ID: 12345</p>
-              <p>Status: Shipped</p>
-              <button className="close-btn" onClick={() => setShowOrderPopup(false)}>
+  <div className="popup-overlay">
+    <div className="popup-box">
+      <h3>Order Details</h3>
+          <Order displayName={displayName}></Order>  
+          <button className="close-btn" onClick={() => setShowOrderPopup(false)}>
                 Close
               </button>
-            </div>
-          </div>
-        )}
+    </div>
+  </div>
+)}
+
 
         {/* Main Content */}
         <main className="main">
