@@ -1,12 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getFirestore, collection, query, where, getDocs } from "firebase/firestore";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./searchbox.css";
 
 const SearchTagname = () => {
     const db = getFirestore();
     const navigate = useNavigate();
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const displayNameFromQuery = queryParams.get("displayName") || "Guest";
+    
+    const [displayName, setDisplayName] = useState(displayNameFromQuery);
+    useEffect(() => {
+        setDisplayName(displayNameFromQuery);
+    }, [displayNameFromQuery]);
 
+    console.log({ displayName });
     const cities = [
         { value: "Sivakasi", label: "Sivakasi" },
         { value: "Karur", label: "Karur" },
@@ -39,7 +48,7 @@ const SearchTagname = () => {
                 collection(db, "Messages"),
                 where("vecfrom", "==", from),
                 where("vecto", "==", to),
-                where("date", "==", date) // Ensure Firestore stores dates as strings (YYYY-MM-DD)
+                where("date", "==", date)
             );
 
             const querySnapshot = await getDocs(q);
@@ -53,7 +62,7 @@ const SearchTagname = () => {
 
         setLoading(false);
     };
-
+        console.log({displayName});
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100 search">
             <div className="bg-white p-6 rounded-lg shadow-lg w-96">
@@ -144,7 +153,14 @@ const SearchTagname = () => {
                                             <td>
                                                 <button
                                                     className="book-btn"
-                                                    onClick={() => navigate('/book', { state: { from: route.vecfrom, to: route.vecto, date: route.date } })}
+                                                    onClick={() => navigate('/book', { 
+                                                        state: { 
+                                                            from: route.vecfrom, 
+                                                            to: route.vecto, 
+                                                            date: route.date,
+                                                            displayName: displayName // Sending displayName
+                                                        } 
+                                                    })}
                                                 >  
                                                     Book Now
                                                 </button>

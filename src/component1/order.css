@@ -1,0 +1,57 @@
+.orders-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    overflow-x: auto;
+  }
+  
+  .orders-container h1 {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .table-wrapper {
+    max-height: 400px; /* Fixed height for scrolling */
+    overflow: auto; /* Enable scrollbars */
+    border: 1px solid #ddd;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Ensures equal column widths */
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Show "..." for long text */
+  }
+  
+  th {
+    background-color: #f4f4f4;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+  
+  /* Alternate row colors */
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Responsive Table */
+  @media (max-width: 768px) {
+    .orders-container {
+      padding: 10px;
+    }
+  
+    table {
+      font-size: 14px;
+    }
+  }
+  

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { db } from "../firebase/firebaseconfig.js";
 import { collection, getDocs } from "firebase/firestore";
 
-
 const Order = () => {
   const [orders, setOrders] = useState([]);
 
@@ -33,9 +32,10 @@ const Order = () => {
             <th>Receiver Name</th>
             <th>Receiver Phone</th>
             <th>Delivery Address</th>
-            <th>Weight & Dimensions</th>
+            <th>Weight (kg)</th>
             <th>Item Type</th>
-            <th>Insurance</th>
+            <th>Delivery Charge (₹)</th>
+            <th>Payment ID</th>
             <th>From City</th>
             <th>To City</th>
           </tr>
@@ -50,9 +50,10 @@ const Order = () => {
               <td>{order.receiverName}</td>
               <td>{order.receiverPhone}</td>
               <td>{order.deliveryAddress}</td>
-              <td>{order.weightDimensions}</td>
+              <td>{order.weight} kg</td>
               <td>{order.itemType}</td>
-              <td>{order.insurance}</td>
+              <td>₹{order.deliveryCharge}</td>
+              <td>{order.paymentId || "Not Paid"}</td>
               <td>{order.fromLocation}</td>
               <td>{order.toLocation}</td>
             </tr>

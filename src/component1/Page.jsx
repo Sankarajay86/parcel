@@ -1,33 +1,35 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { dataRef } from "../firebase/firebaseconfig.js";
-import { onValue } from "firebase/database"; // Import the required Firebase method
+import { onValue, off } from "firebase/database"; // Import Firebase methods
 import "./Page.css"; // Import CSS file
 
 function Page({ displayName }) {
-  const [allValue, setAllValue] = useState([]); // State to store values from Firebase
-  const [isAdmin, setIsAdmin] = useState(false); // State to check if the user is an admin
+  const [allValue, setAllValue] = useState([]); 
+  const [isAdmin, setIsAdmin] = useState(false);
   const navigate = useNavigate();
   const gmail = displayName;
 
   useEffect(() => {
-    const unsubscribe = onValue(dataRef, (snapshot) => {
-      const data = snapshot.val(); // Get the data from Firebase
-      const getData = data ? Object.values(data) : []; // Handle case when no data exists
-      setAllValue(getData); // Update state with fetched data
+    if (!displayName) return; // Avoid unnecessary operations
 
-      // Check if the logged-in user is an admin
+    const listener = onValue(dataRef, (snapshot) => {
+      const data = snapshot.val();
+      const getData = data ? Object.values(data) : [];
+      setAllValue(getData);
       setIsAdmin(displayName === "sankarajay86@gmail.com");
     });
 
-    return () => unsubscribe(); // Cleanup listener on component unmount
-  }, [displayName]); // Add displayName to the dependency array to update if it changes
+    return () => off(dataRef); // Cleanup Firebase listener
+  }, [displayName]);
 
   useEffect(() => {
+    if (allValue.length === 0) return; // Ensure data is loaded before navigating
+    
     if (isAdmin) {
       navigate("/Admin");
     } else if (allValue.some((item) => item.displayName === gmail)) {
-      navigate("/Home");
+      navigate("/Home", { state: { displayName: gmail } });
     }
   }, [isAdmin, allValue, gmail, navigate]);
 
@@ -35,9 +37,13 @@ function Page({ displayName }) {
     navigate("/User", { state: { displayName: gmail } });
   };
 
-  return <div>
-    <button className="bold-text" onClick={goToUser}>Go to User</button>
-  </div>;
+  if (!displayName) return null; // Prevent rendering if displayName is missing
+
+  return (
+    <div>
+      <button className="bold-text" onClick={goToUser}>Go to User</button>
+    </div>
+  );
 }
 
 export default Page;
