@@ -46,7 +46,7 @@ function Home() {
 
   return (
     <>
-      <div className="home-container" style={{ marginRight: "3rem", height: "100vh", width: "100vw" }}>
+      <div className="home-container" style={{ marginRight: "-1rem", height: "100vh", width: "100vw" }}>
         {/* Header */}
         <header className="header11">
           <div className="container11">

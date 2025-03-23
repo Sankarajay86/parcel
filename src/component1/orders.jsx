@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../firebase/firebaseconfig.js";
 import { collection, query, where, getDocs } from "firebase/firestore";
-
+import './order.css'
 function Orderdetails({ displayName, onClose }) {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(false);

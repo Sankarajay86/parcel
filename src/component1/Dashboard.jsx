@@ -41,8 +41,8 @@ const Dashboard = () => {
       backgroundRepeat: 'no-repeat',
       backgroundAttachment: 'fixed',
       backgroundPosition: 'center',
-      height: '100vh', // Full viewport height
-      width: '100%', // Full viewport width
+      height: '100vh', 
+      width: '100%', 
       display:'flex',
       marginBottom:'40%'
 
