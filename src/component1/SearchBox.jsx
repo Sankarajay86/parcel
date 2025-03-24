@@ -64,7 +64,7 @@ const SearchTagname = () => {
     };
         console.log({displayName});
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-100 search">
+        <div className="flex items-center align justify-center min-h-screen bg-gray-100 search ">
             <div className="bg-white p-6 rounded-lg shadow-lg w-96">
                 <h4 className="text-center text-lg font-semibold mb-4">Find Your Route</h4>
 
