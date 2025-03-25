@@ -35,15 +35,14 @@ function Gmail() {
                     </div>
                 ) : (
                     
-                    <div>
+                    <div className='maran'>
                         <img src={img} alt="" style={{ marginRight: '10px' }} className='imgs'/>
-                        <p>Parcel service</p>
-                        <p>Sign in to continue</p>
-                        <button onClick={handleGoogleSignIn} className='gg'>
+                        <p> Parcel service</p>
+                        <p className='mar'>Sign in to continue</p>
+                        <button onClick={handleGoogleSignIn} className='gg' >
                         <FaGoogle style={{ marginRight: '10px' }} /> {/* Google logo */}
                         Sign in with Google
                         </button>
-
                     </div>
                 )}
             </div>

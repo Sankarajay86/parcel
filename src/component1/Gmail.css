@@ -29,7 +29,7 @@
     box-shadow: yellow;
   }
   
-  p {
+  .mar{
     font-size: 18px;
     color:yellow;
     font-size: 30px;
@@ -59,4 +59,12 @@
 {
   color: orange;
   background-color: red;
+}
+.maran
+{
+  
+}
+.mar
+{
+  color: white;
 }
